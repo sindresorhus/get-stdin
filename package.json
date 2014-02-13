@@ -1,6 +1,6 @@
 {
   "name": "get-stdin",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "Easier stdin",
   "license": "MIT",
   "repository": "sindresorhus/get-stdin",
