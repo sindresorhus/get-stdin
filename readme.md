@@ -1,4 +1,4 @@
-# get-stdin [![Build Status](https://travis-ci.org/sindresorhus/get-stdin.png?branch=master)](https://travis-ci.org/sindresorhus/get-stdin)
+# get-stdin [![Build Status](https://travis-ci.org/sindresorhus/get-stdin.svg?branch=master)](https://travis-ci.org/sindresorhus/get-stdin)
 
 > Easier stdin
 
@@ -10,7 +10,7 @@ $ npm install --save get-stdin
 ```
 
 
-## Example
+## Usage
 
 ```js
 // example.js
