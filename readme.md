@@ -5,7 +5,7 @@
 
 ## Install
 
-```bash
+```sh
 $ npm install --save get-stdin
 ```
 
@@ -22,7 +22,7 @@ stdin(function (data) {
 });
 ```
 
-```bash
+```sh
 $ echo unicorns | node example.js
 unicorns
 ```
@@ -30,4 +30,4 @@ unicorns
 
 ## License
 
-[MIT](http://opensource.org/licenses/MIT) © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](http://sindresorhus.com)

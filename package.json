@@ -13,19 +13,22 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "echo unicorns | mocha"
+    "test": "echo unicorns | node test.js"
   },
   "files": [
     "index.js"
   ],
   "keywords": [
+    "std",
     "stdin",
     "stdio",
     "concat",
     "buffer",
+    "stream",
+    "process",
     "stream"
   ],
   "devDependencies": {
-    "mocha": "*"
+    "ava": "0.0.3"
   }
 }

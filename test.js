@@ -1,10 +1,11 @@
 'use strict';
-var assert = require('assert');
-var stdin = require('./index');
+var test = require('ava');
+var stdin = require('./');
 
-it('should get stdin', function (cb) {
+test('should get stdin', function (t) {
+	t.plan(1);
+
 	stdin(function (data) {
-		assert.equal(data.trim(), 'unicorns');
-		cb();
+		t.assert(data.trim() === 'unicorns');
 	});
 });
