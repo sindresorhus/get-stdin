@@ -1,14 +1,12 @@
 'use strict';
 module.exports = function (cb) {
-	var ret = '';
-
-	process.stdin.setEncoding('utf8');
+	var ret = [];
 
 	process.stdin.on('data', function (data) {
-		ret += data;
+		ret.push(data);
 	});
 
 	process.stdin.on('end', function () {
-		cb(ret);
+		cb(Buffer.concat(ret));
 	});
 };
