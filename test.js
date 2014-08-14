@@ -4,7 +4,7 @@ var test = require('ava');
 var stdin = require('./');
 
 test('should get stdin', function (t) {
-	t.plan(1);
+	t.plan(2);
 
 	stdin(function (data) {
 		t.assert(equal(data, new Buffer('unicorns\n')));
