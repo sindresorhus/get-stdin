@@ -17,7 +17,7 @@ $ npm install --save get-stdin
 var stdin = require('get-stdin');
 
 stdin(function (data) {
-	console.log(data);
+	console.log(data.toString());
 	//=> unicorns
 });
 ```

@@ -29,6 +29,7 @@
     "stream"
   ],
   "devDependencies": {
-    "ava": "0.0.3"
+    "ava": "0.0.3",
+    "buffer-equal": "0.0.1"
   }
 }
