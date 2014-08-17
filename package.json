@@ -13,7 +13,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "echo unicorns | node test.js"
+    "test": "echo unicorns | node test.js && echo unicorns | node test-buffer.js"
   },
   "files": [
     "index.js"
@@ -29,7 +29,7 @@
     "stream"
   ],
   "devDependencies": {
-    "ava": "0.0.3",
+    "ava": "0.0.4",
     "buffer-equal": "0.0.1"
   }
 }
