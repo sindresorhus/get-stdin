@@ -3,7 +3,7 @@
 module.exports = function (cb) {
 	var ret = '';
 
-	if (!process.stdin.isTTY) {
+	if (process.stdin.isTTY) {
 		cb('');
 		return;
 	}
@@ -23,7 +23,7 @@ module.exports.buffer = function (cb) {
 	var ret = [];
 	var len = 0;
 
-	if (!process.stdin.isTTY) {
+	if (process.stdin.isTTY) {
 		cb(new Buffer(''));
 		return;
 	}
