@@ -5,7 +5,7 @@ module.exports = function (cb) {
 	var ret = '';
 
 	if (stdin.isTTY) {
-		cb('');
+		setImmediate(cb, '');
 		return;
 	}
 
@@ -30,7 +30,7 @@ module.exports.buffer = function (cb) {
 	var len = 0;
 
 	if (stdin.isTTY) {
-		cb(new Buffer(''));
+		setImmediate(cb, new Buffer(''));
 		return;
 	}
 
