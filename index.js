@@ -5,7 +5,7 @@ module.exports = function (cb) {
 	var ret = '';
 
 	if (stdin.isTTY) {
-		setImmediate(cb, '');
+		setImmediate(cb, ret);
 		return;
 	}
 
