@@ -31,5 +31,8 @@
   "devDependencies": {
     "ava": "0.0.4",
     "buffer-equal": "0.0.1"
+  },
+  "dependencies": {
+    "bluebird": "^2.9.34"
   }
 }
