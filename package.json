@@ -13,7 +13,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "node test.js && node test-buffer.js && echo unicorns | node test-real.js"
+    "test": "node test.js && node test-buffer.js && node test-promise.js && echo unicorns | node test-real.js"
   },
   "files": [
     "index.js"
