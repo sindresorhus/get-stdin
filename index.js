@@ -1,6 +1,8 @@
 'use strict';
 
-module.exports = function (cb) {
+var promise = typeof Promise !== 'undefined' ? Promise : require('bluebird')
+
+var main = function (cb) {
 	var stdin = process.stdin;
 	var ret = '';
 
@@ -24,6 +26,8 @@ module.exports = function (cb) {
 	});
 };
 
+module.exports = main
+
 module.exports.buffer = function (cb) {
 	var stdin = process.stdin;
 	var ret = [];
@@ -46,4 +50,15 @@ module.exports.buffer = function (cb) {
 	stdin.on('end', function () {
 		cb(Buffer.concat(ret, len));
 	});
+};
+
+module.exports.promise = function () {
+	return new promise(function (resolve, reject) {
+		main(function (data) {
+			resolve(data)
+		})
+	})
+	.catch(function (err) {
+		reject(err)
+	})
 };
