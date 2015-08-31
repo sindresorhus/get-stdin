@@ -30,7 +30,7 @@
   ],
   "devDependencies": {
     "ava": "*",
-    "buffer-equal": "0.0.1",
+    "buffer-equals": "^1.0.3",
     "xo": "*"
   }
 }
