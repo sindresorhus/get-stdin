@@ -5,7 +5,7 @@
 
 ## Install
 
-```sh
+```
 $ npm install --save get-stdin
 ```
 
@@ -14,15 +14,15 @@ $ npm install --save get-stdin
 
 ```js
 // example.js
-var stdin = require('get-stdin');
+const stdin = require('get-stdin');
 
-stdin(function (data) {
+stdin.then(data => {
 	console.log(data);
-	//=> unicorns
+	//=> 'unicorns'
 });
 ```
 
-```sh
+```
 $ echo unicorns | node example.js
 unicorns
 ```
@@ -30,13 +30,17 @@ unicorns
 
 ## API
 
-### stdin(callback)
+### stdin()
 
 Get `stdin` as a string.
 
-### stdin.buffer(callback)
+Returns a promise.
+
+### stdin.buffer()
 
 Get `stdin` as a buffer.
+
+Returns a promise.
 
 
 ## License
