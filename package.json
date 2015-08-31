@@ -1,7 +1,7 @@
 {
   "name": "get-stdin",
   "version": "4.0.1",
-  "description": "Easier stdin",
+  "description": "Get stdin as a string or buffer",
   "license": "MIT",
   "repository": "sindresorhus/get-stdin",
   "author": {
@@ -26,7 +26,7 @@
     "buffer",
     "stream",
     "process",
-    "stream"
+    "read"
   ],
   "devDependencies": {
     "ava": "*",

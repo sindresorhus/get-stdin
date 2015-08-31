@@ -1,6 +1,6 @@
 # get-stdin [![Build Status](https://travis-ci.org/sindresorhus/get-stdin.svg?branch=master)](https://travis-ci.org/sindresorhus/get-stdin)
 
-> Easier stdin
+> Get stdin as a string or buffer
 
 
 ## Install
@@ -16,8 +16,8 @@ $ npm install --save get-stdin
 // example.js
 const stdin = require('get-stdin');
 
-stdin.then(data => {
-	console.log(data);
+stdin.then(x => {
+	console.log(x);
 	//=> 'unicorns'
 });
 ```
