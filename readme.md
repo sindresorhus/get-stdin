@@ -16,7 +16,7 @@ $ npm install --save get-stdin
 // example.js
 const stdin = require('get-stdin');
 
-stdin.then(x => {
+stdin().then(x => {
 	console.log(x);
 	//=> 'unicorns'
 });
