@@ -13,7 +13,7 @@
     "node": ">=0.12.0"
   },
   "scripts": {
-    "test": "xo && ava test.js test-buffer.js && echo unicorns | ava test-real.js"
+    "test": "xo && ava test.js && echo unicorns | ava test-real.js"
   },
   "files": [
     "index.js"
@@ -32,5 +32,10 @@
     "ava": "*",
     "buffer-equals": "^1.0.3",
     "xo": "*"
+  },
+  "xo": {
+    "ignores": [
+      "test.js"
+    ]
   }
 }

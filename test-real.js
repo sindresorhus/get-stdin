@@ -1,6 +1,3 @@
-'use strict';
-var stdin = require('./');
+import fn from './';
 
-stdin().then(function (data) {
-	process.exit(data ? 0 : 1);
-});
+fn().then(data => process.exit(data ? 0 : 1));
