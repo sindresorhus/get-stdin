@@ -1,3 +1,6 @@
-import fn from './';
+'use strict';
+var fn = require('./');
 
-fn().then(data => process.exit(data ? 0 : 1));
+fn().then(function (data) {
+	process.exit(data ? 0 : 1);
+});
