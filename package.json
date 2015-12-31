@@ -1,6 +1,6 @@
 {
   "name": "get-stdin",
-  "version": "5.0.1",
+  "version": "5.0.2",
   "description": "Get stdin as a string or buffer",
   "license": "MIT",
   "repository": "sindresorhus/get-stdin",
@@ -13,7 +13,7 @@
     "node": ">=0.12.0"
   },
   "scripts": {
-    "test": "xo && ava test.js && echo unicorns | node test-real.js"
+    "test": "xo && ava --verbose test.js && ava --verbose test-tty.js && echo unicorns | node test-real.js"
   },
   "files": [
     "index.js"
@@ -29,7 +29,7 @@
     "read"
   ],
   "devDependencies": {
-    "ava": "^0.2.0",
+    "ava": "^0.9.0",
     "buffer-equals": "^1.0.3",
     "xo": "*"
   }
