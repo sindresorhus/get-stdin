@@ -16,7 +16,7 @@ module.exports = function (opt) {
 		stdin.on('readable', function () {
 			var chunk;
 			while ((chunk = stdin.read())) {
-				if (stdin.isTTY && tty && handleTTY(chunk)) {
+				if (tty && handleTTY(chunk)) {
 					return;
 				}
 				ret += chunk;

@@ -36,7 +36,7 @@ test.serial('get stdin in TTY mode using global tty', async t => {
 
 test.serial('get empty string in non-TTY mode with option override', async t => {
 	setImmediate(() => {
-		process.stdin.push('unicorn111');
+		process.stdin.push('unicorn');
 		process.stdin.push('\u0004\n');
 		process.stdin.emit('end');
 	});
