@@ -32,11 +32,11 @@ unicorns
 
 Both methods returns a promise that is resolved when the `end` event fires on the `stdin` stream, indicating that there is no more data to be read.
 
-### getStdin()
+### getStdin([opt])
 
 Get `stdin` as a string.
 
-In a TTY context, a promise that resolves to an empty string is returned.
+In a TTY context, a promise that resolves to an empty string is returned, unless opt.tty or getStdin.tty is true.
 
 ### getStdin.buffer()
 
@@ -44,6 +44,21 @@ Get `stdin` as a buffer.
 
 In a TTY context, a promise that resolves to an empty buffer is returned.
 
+### getStdin.tty = true/false
+
+Set global TTY handling.  When true, accepts input from TTY until a new line beginning with Ctrl-d or Ctrl-z (ASCII 04 and 26) is entered. (default = false)
+
+When enabled for the example above:
+
+``` 
+$ node example.js
+foobar
+barfoo
+^d
+// =>
+foobar
+barfoo
+```
 
 ## Related
 

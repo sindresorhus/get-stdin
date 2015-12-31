@@ -2,6 +2,10 @@ import test from 'ava';
 import bufferEquals from 'buffer-equals';
 import fn from './';
 
+test.beforeEach(() => {
+	process.stdin.removeAllListeners();
+});
+
 test.serial('get stdin', async t => {
 	process.stdin.isTTY = false;
 
@@ -19,14 +23,15 @@ test.serial('get empty string when no stdin', async t => {
 });
 
 test.serial('get stdin as a buffer', t => {
+	t.plan(2);
 	process.stdin.isTTY = false;
-
-	const promise = fn.buffer(data => {
-		t.true(bufferEquals(data, new Buffer('unicorns')));
-		t.is(data.toString().trim(), 'unicorns');
+	const promise = fn.buffer().then(data => {
+		t.true(bufferEquals(data, new Buffer('unicorns-foobar')));
+		t.is(data.toString().trim(), 'unicorns-foobar');
 	});
 
-	process.stdin.push(new Buffer('unicorns'));
+	process.stdin.push('unicorns');
+	process.stdin.push(new Buffer('-foobar'));
 	process.stdin.emit('end');
 
 	return promise;
