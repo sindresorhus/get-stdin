@@ -46,12 +46,12 @@ In a TTY context, a promise that resolves to an empty buffer is returned.
 
 ### getStdin.tty = true/false
 
-Set global TTY handling.  When true, accepts input from TTY until a new line beginning with ^d or ^z is entered. (default = false)
+Set global TTY handling.  When true, accepts input from TTY until a new line beginning with Ctrl-d or Ctrl-z (ASCII 04 and 26) is entered. (default = false)
 
 When enabled for the example above:
 
 ``` 
-$ example.js
+$ node example.js
 foobar
 barfoo
 ^d
