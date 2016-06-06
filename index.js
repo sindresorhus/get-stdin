@@ -12,12 +12,8 @@ module.exports = function () {
 
 		stdin.setEncoding('utf8');
 
-		stdin.on('readable', function () {
-			var chunk;
-
-			while ((chunk = stdin.read())) {
-				ret += chunk;
-			}
+		stdin.on('data', function (chunk) {
+			ret += chunk;
 		});
 
 		stdin.on('end', function () {
@@ -36,13 +32,9 @@ module.exports.buffer = function () {
 			return;
 		}
 
-		stdin.on('readable', function () {
-			var chunk;
-
-			while ((chunk = stdin.read())) {
-				ret.push(chunk);
-				len += chunk.length;
-			}
+		stdin.on('data', function (chunk) {
+			ret.push(chunk);
+			len += chunk.length;
 		});
 
 		stdin.on('end', function () {
