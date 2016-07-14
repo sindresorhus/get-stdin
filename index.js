@@ -1,7 +1,11 @@
 'use strict';
-var stdin = process.stdin;
+var stdin = null;
 
 module.exports = function () {
+	if (stdin === null) {
+		stdin = process.stdin;
+	}
+
 	var ret = '';
 
 	return new Promise(function (resolve) {
@@ -27,6 +31,10 @@ module.exports = function () {
 };
 
 module.exports.buffer = function () {
+	if (stdin === null) {
+		stdin = process.stdin;
+	}
+
 	var ret = [];
 	var len = 0;
 
