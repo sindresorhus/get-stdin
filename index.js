@@ -1,7 +1,7 @@
 'use strict';
 var stdin = process.stdin;
 
-module.exports = function () {
+module.exports = module.exports.default = function () {
 	var ret = '';
 
 	return new Promise(function (resolve) {
