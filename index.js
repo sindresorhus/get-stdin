@@ -10,9 +10,17 @@ module.exports = () => {
 			return;
 		}
 
+		const timeout = setTimeout(() => {
+			resolve(ret);
+		}, 100);
+
+		stdin.unref();
 		stdin.setEncoding('utf8');
 
 		stdin.on('readable', () => {
+			clearTimeout(timeout);
+			stdin.ref();
+
 			let chunk;
 
 			while ((chunk = stdin.read())) {
@@ -36,7 +44,16 @@ module.exports.buffer = () => {
 			return;
 		}
 
+		const timeout = setTimeout(() => {
+			resolve(new Buffer(''));
+		}, 100);
+
+		stdin.unref();
+
 		stdin.on('readable', () => {
+			clearTimeout(timeout);
+			stdin.ref();
+
 			let chunk;
 
 			while ((chunk = stdin.read())) {
