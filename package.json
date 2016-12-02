@@ -10,7 +10,7 @@
     "url": "sindresorhus.com"
   },
   "engines": {
-    "node": ">=0.12.0"
+    "node": ">=4"
   },
   "scripts": {
     "test": "xo && ava test.js test-buffer.js && echo unicorns | node test-real.js"
@@ -30,7 +30,9 @@
   ],
   "devDependencies": {
     "ava": "*",
-    "buffer-equals": "^1.0.3",
     "xo": "*"
+  },
+  "xo": {
+    "esnext": true
   }
 }

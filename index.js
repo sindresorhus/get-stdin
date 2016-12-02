@@ -1,10 +1,10 @@
 'use strict';
-var stdin = process.stdin;
+const stdin = process.stdin;
 
-module.exports = function () {
-	var ret = '';
+module.exports = () => {
+	let ret = '';
 
-	return new Promise(function (resolve) {
+	return new Promise(resolve => {
 		if (stdin.isTTY) {
 			resolve(ret);
 			return;
@@ -12,32 +12,32 @@ module.exports = function () {
 
 		stdin.setEncoding('utf8');
 
-		stdin.on('readable', function () {
-			var chunk;
+		stdin.on('readable', () => {
+			let chunk;
 
 			while ((chunk = stdin.read())) {
 				ret += chunk;
 			}
 		});
 
-		stdin.on('end', function () {
+		stdin.on('end', () => {
 			resolve(ret);
 		});
 	});
 };
 
-module.exports.buffer = function () {
-	var ret = [];
-	var len = 0;
+module.exports.buffer = () => {
+	const ret = [];
+	let len = 0;
 
-	return new Promise(function (resolve) {
+	return new Promise(resolve => {
 		if (stdin.isTTY) {
 			resolve(new Buffer(''));
 			return;
 		}
 
-		stdin.on('readable', function () {
-			var chunk;
+		stdin.on('readable', () => {
+			let chunk;
 
 			while ((chunk = stdin.read())) {
 				ret.push(chunk);
@@ -45,7 +45,7 @@ module.exports.buffer = function () {
 			}
 		});
 
-		stdin.on('end', function () {
+		stdin.on('end', () => {
 			resolve(Buffer.concat(ret, len));
 		});
 	});

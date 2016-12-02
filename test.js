@@ -1,10 +1,10 @@
 import test from 'ava';
-import fn from './';
+import m from './';
 
 test.serial('get stdin', async t => {
 	t.plan(1);
 	process.stdin.isTTY = false;
-	const promise = fn();
+	const promise = m();
 	process.stdin.push('uni');
 	process.stdin.push('corns');
 	process.stdin.emit('end');
@@ -13,5 +13,5 @@ test.serial('get stdin', async t => {
 
 test.serial('get empty string when no stdin', async t => {
 	process.stdin.isTTY = true;
-	t.is(await fn(), '');
+	t.is(await m(), '');
 });

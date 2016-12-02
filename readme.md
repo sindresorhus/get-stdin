@@ -52,4 +52,4 @@ In a TTY context, a promise that resolves to an empty buffer is returned.
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)
