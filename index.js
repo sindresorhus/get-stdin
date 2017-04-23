@@ -1,52 +1,34 @@
 'use strict';
 const stdin = process.stdin;
 
-module.exports = () => {
-	let ret = '';
+function getStdin(serializer) {
+	return () => {
+		const ret = [];
+		let len = 0;
 
-	return new Promise(resolve => {
-		if (stdin.isTTY) {
-			resolve(ret);
-			return;
-		}
-
-		stdin.setEncoding('utf8');
-
-		stdin.on('readable', () => {
-			let chunk;
-
-			while ((chunk = stdin.read())) {
-				ret += chunk;
+		return new Promise(resolve => {
+			if (stdin.isTTY) {
+				const buffer = Buffer.from('');
+				resolve(serializer(buffer));
+				return;
 			}
+
+			stdin.on('readable', () => {
+				let chunk;
+
+				while ((chunk = stdin.read())) {
+					ret.push(chunk);
+					len += chunk.length;
+				}
+			});
+
+			stdin.on('end', () => {
+				const buffer = Buffer.concat(ret, len);
+				resolve(serializer(buffer));
+			});
 		});
+	};
+}
 
-		stdin.on('end', () => {
-			resolve(ret);
-		});
-	});
-};
-
-module.exports.buffer = () => {
-	const ret = [];
-	let len = 0;
-
-	return new Promise(resolve => {
-		if (stdin.isTTY) {
-			resolve(new Buffer(''));
-			return;
-		}
-
-		stdin.on('readable', () => {
-			let chunk;
-
-			while ((chunk = stdin.read())) {
-				ret.push(chunk);
-				len += chunk.length;
-			}
-		});
-
-		stdin.on('end', () => {
-			resolve(Buffer.concat(ret, len));
-		});
-	});
-};
+module.exports = getStdin(buffer => buffer.toString());
+module.exports.buffer = getStdin(buffer => buffer);
