@@ -6,15 +6,15 @@ test.serial('get stdin', async t => {
 	process.stdin.isTTY = false;
 
 	const promise = m.buffer();
-	process.stdin.push(new Buffer('uni'));
-	process.stdin.push(new Buffer('corns'));
+	process.stdin.push(Buffer.from('uni'));
+	process.stdin.push(Buffer.from('corns'));
 	process.stdin.emit('end');
 	const data = await promise;
-	t.true(data.equals(new Buffer('unicorns')));
+	t.true(data.equals(Buffer.from('unicorns')));
 	t.is(data.toString(), 'unicorns');
 });
 
 test.serial('get empty buffer when no stdin', async t => {
 	process.stdin.isTTY = true;
-	t.true((await m.buffer()).equals(new Buffer('')));
+	t.true((await m.buffer()).equals(Buffer.from('')));
 });
