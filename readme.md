@@ -6,7 +6,7 @@
 ## Install
 
 ```
-$ npm install --save get-stdin
+$ npm install get-stdin
 ```
 
 
@@ -34,13 +34,13 @@ Both methods returns a promise that is resolved when the `end` event fires on th
 
 ### getStdin()
 
-Get `stdin` as a string.
+Get `stdin` as a `string`.
 
 In a TTY context, a promise that resolves to an empty string is returned.
 
 ### getStdin.buffer()
 
-Get `stdin` as a buffer.
+Get `stdin` as a `Buffer`.
 
 In a TTY context, a promise that resolves to an empty buffer is returned.
 

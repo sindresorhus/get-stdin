@@ -1,5 +1,5 @@
 import test from 'ava';
-import m from './';
+import m from '.';
 
 test.serial('get stdin', async t => {
 	t.plan(1);
