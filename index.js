@@ -32,7 +32,7 @@ module.exports.buffer = () => {
 
 	return new Promise(resolve => {
 		if (stdin.isTTY) {
-			resolve(new Buffer('')); // eslint-disable-line unicorn/no-new-buffer
+			resolve(Buffer.concat([]));
 			return;
 		}
 
