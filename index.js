@@ -1,12 +1,12 @@
 'use strict';
-const stdin = process.stdin;
+const {stdin} = process;
 
 module.exports = () => {
-	let ret = '';
+	let result = '';
 
 	return new Promise(resolve => {
 		if (stdin.isTTY) {
-			resolve(ret);
+			resolve(result);
 			return;
 		}
 
@@ -16,19 +16,19 @@ module.exports = () => {
 			let chunk;
 
 			while ((chunk = stdin.read())) {
-				ret += chunk;
+				result += chunk;
 			}
 		});
 
 		stdin.on('end', () => {
-			resolve(ret);
+			resolve(result);
 		});
 	});
 };
 
 module.exports.buffer = () => {
-	const ret = [];
-	let len = 0;
+	const result = [];
+	let length = 0;
 
 	return new Promise(resolve => {
 		if (stdin.isTTY) {
@@ -40,13 +40,13 @@ module.exports.buffer = () => {
 			let chunk;
 
 			while ((chunk = stdin.read())) {
-				ret.push(chunk);
-				len += chunk.length;
+				result.push(chunk);
+				length += chunk.length;
 			}
 		});
 
 		stdin.on('end', () => {
-			resolve(Buffer.concat(ret, len));
+			resolve(Buffer.concat(result, length));
 		});
 	});
 };
