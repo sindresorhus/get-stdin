@@ -1,20 +1,22 @@
-import test from 'ava';
-import m from '.';
+import {serial as test} from 'ava';
+import delay from 'delay';
+import getStdin from '.';
 
-test.serial('get stdin', async t => {
-	t.plan(2);
+test('get stdin', async t => {
 	process.stdin.isTTY = false;
 
-	const promise = m.buffer();
+	const promise = getStdin.buffer();
 	process.stdin.push(Buffer.from('uni'));
 	process.stdin.push(Buffer.from('corns'));
+	await delay(1);
 	process.stdin.emit('end');
+
 	const data = await promise;
 	t.true(data.equals(Buffer.from('unicorns')));
 	t.is(data.toString(), 'unicorns');
 });
 
-test.serial('get empty buffer when no stdin', async t => {
+test('get empty buffer when no stdin', async t => {
 	process.stdin.isTTY = true;
-	t.true((await m.buffer()).equals(Buffer.from('')));
+	t.true((await getStdin.buffer()).equals(Buffer.from('')));
 });
