@@ -19,7 +19,7 @@ const getStdin = require('get-stdin');
 (async () => {
 	console.log(await getStdin());
 	//=> 'unicorns'
-})
+})();
 ```
 
 ```
