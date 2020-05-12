@@ -1,14 +1,12 @@
-# get-stdin [![Build Status](https://travis-ci.org/sindresorhus/get-stdin.svg?branch=master)](https://travis-ci.org/sindresorhus/get-stdin)
+# get-stdin [![Build Status](https://travis-ci.com/sindresorhus/get-stdin.svg?branch=master)](https://travis-ci.com/sindresorhus/get-stdin)
 
 > Get [stdin](https://nodejs.org/api/process.html#process_process_stdin) as a string or buffer
-
 
 ## Install
 
 ```
 $ npm install get-stdin
 ```
-
 
 ## Usage
 
@@ -27,7 +25,6 @@ $ echo unicorns | node example.js
 unicorns
 ```
 
-
 ## API
 
 Both methods returns a promise that is resolved when the `end` event fires on the `stdin` stream, indicating that there is no more data to be read.
@@ -44,11 +41,9 @@ Get `stdin` as a `Buffer`.
 
 In a TTY context, a promise that resolves to an empty `Buffer` is returned.
 
-
 ## Related
 
 - [get-stream](https://github.com/sindresorhus/get-stream) - Get a stream as a string or buffer
-
 
 ---
 

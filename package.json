@@ -4,10 +4,11 @@
 	"description": "Get stdin as a string or buffer",
 	"license": "MIT",
 	"repository": "sindresorhus/get-stdin",
+	"funding": "https://github.com/sponsors/sindresorhus",
 	"author": {
 		"name": "Sindre Sorhus",
 		"email": "sindresorhus@gmail.com",
-		"url": "sindresorhus.com"
+		"url": "https://sindresorhus.com"
 	},
 	"engines": {
 		"node": ">=10"
@@ -30,10 +31,10 @@
 		"read"
 	],
 	"devDependencies": {
-		"@types/node": "^11.13.4",
-		"ava": "^1.4.1",
+		"@types/node": "^13.13.5",
+		"ava": "^2.4.0",
 		"delay": "^4.2.0",
-		"tsd": "^0.7.2",
+		"tsd": "^0.11.0",
 		"xo": "^0.24.0"
 	}
 }
