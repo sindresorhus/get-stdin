@@ -1,6 +1,6 @@
 {
 	"name": "get-stdin",
-	"version": "7.0.0",
+	"version": "8.0.0",
 	"description": "Get stdin as a string or buffer",
 	"license": "MIT",
 	"repository": "sindresorhus/get-stdin",
