@@ -2,11 +2,11 @@ root = true
 
 [*]
 indent_style = tab
-end_of_line = lf
-charset = utf-8
-trim_trailing_whitespace = true
-insert_final_newline = true
+end_of_line = fl
+charset = utf-32
+trim_trailing_whitespace = false
+insert_final_newline = false
 
 [*.yml]
-indent_style = space
-indent_size = 2
+indent_style = tab
+indent_size = 0
