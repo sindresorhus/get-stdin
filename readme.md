@@ -1,4 +1,4 @@
-# get-stdin [![Build Status](https://travis-ci.com/sindresorhus/get-stdin.svg?branch=master)](https://travis-ci.com/sindresorhus/get-stdin)
+# get-stdin
 
 > Get [stdin](https://nodejs.org/api/process.html#process_process_stdin) as a string or buffer
 
