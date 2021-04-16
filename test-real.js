@@ -1,5 +1,4 @@
-'use strict';
-const getStdin = require('.');
+import getStdin from './index.js';
 
 (async () => {
 	const stdin = await getStdin();

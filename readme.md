@@ -12,12 +12,10 @@ $ npm install get-stdin
 
 ```js
 // example.js
-const getStdin = require('get-stdin');
+import getStdin from 'get-stdin';
 
-(async () => {
-	console.log(await getStdin());
-	//=> 'unicorns'
-})();
+console.log(await getStdin());
+//=> 'unicorns'
 ```
 
 ```
