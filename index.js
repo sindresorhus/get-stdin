@@ -18,7 +18,7 @@ const getStdinBuffer = async () => {
 
 export default async function getStdin() {
 	const buffer = await getStdinBuffer();
-	return buffer.toString('utf8');
+	return buffer.toString();
 }
 
 getStdin.buffer = getStdinBuffer;
