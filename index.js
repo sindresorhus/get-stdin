@@ -1,28 +1,12 @@
 const {stdin} = process;
 
-export default async function getStdin() {
-	let result = '';
-
+const getStdinBuffer = async () => {
 	if (stdin.isTTY) {
-		return result;
+		return Buffer.alloc(0);
 	}
 
-	stdin.setEncoding('utf8');
-
-	for await (const chunk of stdin) {
-		result += chunk;
-	}
-
-	return result;
-}
-
-getStdin.buffer = async () => {
 	const result = [];
 	let length = 0;
-
-	if (stdin.isTTY) {
-		return Buffer.concat([]);
-	}
 
 	for await (const chunk of stdin) {
 		result.push(chunk);
@@ -31,3 +15,10 @@ getStdin.buffer = async () => {
 
 	return Buffer.concat(result, length);
 };
+
+export default async function getStdin() {
+	const buffer = await getStdinBuffer();
+	return buffer.toString();
+}
+
+getStdin.buffer = getStdinBuffer;
