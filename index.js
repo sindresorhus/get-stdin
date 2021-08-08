@@ -1,12 +1,12 @@
 const {stdin} = process;
 
 const getStdinBuffer = async () => {
+	if (stdin.isTTY) {
+		return Buffer.alloc(0);
+	}
+
 	const result = [];
 	let length = 0;
-
-	if (stdin.isTTY) {
-		return Buffer.concat([]);
-	}
 
 	for await (const chunk of stdin) {
 		result.push(chunk);
