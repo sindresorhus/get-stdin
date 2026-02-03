@@ -1,7 +1,8 @@
-const {stdin} = process;
+const {stdin: processStdin} = process;
 
-const getStdinBuffer = async () => {
-	if (stdin.isTTY) {
+const getStdinBuffer = async (options = {}) => {
+	const {stdin = processStdin, allowTTY = false} = options;
+	if (stdin.isTTY && !allowTTY) {
 		return Buffer.alloc(0);
 	}
 
@@ -16,8 +17,8 @@ const getStdinBuffer = async () => {
 	return Buffer.concat(result, length);
 };
 
-export default async function getStdin() {
-	const buffer = await getStdinBuffer();
+export default async function getStdin(options) {
+	const buffer = await getStdinBuffer(options);
 	return buffer.toString();
 }
 

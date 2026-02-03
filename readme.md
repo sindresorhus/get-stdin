@@ -18,26 +18,87 @@ console.log(await getStdin());
 //=> 'unicorns'
 ```
 
+Run the script with piped input:
+
 ```
 $ echo unicorns | node example.js
 unicorns
 ```
 
+Or run interactively by allowing TTY input and type input, then press Ctrl+D (Unix) or Ctrl+Z (Windows) to signal end of input:
+
+```js
+// example.js
+import getStdin from 'get-stdin';
+
+console.log(await getStdin({allowTTY: true}));
+//=> 'unicorns'
+```
+
+```
+$ node example.js
+unicorns
+<Ctrl+D>
+unicorns
+```
+
 ## API
 
-Both methods returns a promise that is resolved when the `end` event fires on the `stdin` stream, indicating that there is no more data to be read.
+Both methods return a promise that is resolved when the `end` event fires on the `stdin` stream, indicating that there is no more data to be read.
 
-### getStdin()
+By default, in a TTY context the promise resolves with an empty string or buffer. This avoids hanging CLIs that only want piped input and lets them fall back to other input methods. An empty string or buffer means no input was read. To read from a TTY, set `allowTTY: true` and explicitly close `stdin` (Ctrl+D on Unix, Ctrl+Z on Windows).
+
+### getStdin(options?)
 
 Get `stdin` as a `string`.
 
-In a TTY context, a promise that resolves to an empty `string` is returned.
+#### options
 
-### getStdin.buffer()
+Type: `object`
+
+##### allowTTY
+
+Type: `boolean`\
+Default: `false`
+
+Allow reading from a TTY.
+
+Use this when you want interactive behavior like `cat` or other Unix filters that wait for EOF even without piped input. The default resolves immediately in a TTY to avoid hanging CLIs that only want piped input and lets them fall back to other input methods.
+
+##### stdin
+
+Type: `Readable stream`\
+Default: `process.stdin`
+
+Stream to read from.
+
+Useful for tests or to read from a custom stream.
+
+### getStdin.buffer(options?)
 
 Get `stdin` as a `Buffer`.
 
-In a TTY context, a promise that resolves to an empty `Buffer` is returned.
+#### options
+
+Type: `object`
+
+##### allowTTY
+
+Type: `boolean`\
+Default: `false`
+
+Allow reading from a TTY.
+
+Use this when you want interactive behavior like `cat` or other Unix filters that wait for EOF even without piped input. The default resolves immediately in a TTY to avoid hanging CLIs that only want piped input and lets them fall back to other input methods.
+
+##### stdin
+
+Type: `Readable stream`\
+Default: `process.stdin`
+
+Stream to read from.
+
+Useful for tests or to read from a custom stream.
 
 ## Tip
 
@@ -47,7 +108,7 @@ You can now accomplish this natively in Node.js using [`streamConsumers.text()`]
 // example.js
 import {text} from 'node:stream/consumers';
 
-console.log(await text(stream))
+console.log(await text(process.stdin))
 //=> 'unicorns'
 ````
 
