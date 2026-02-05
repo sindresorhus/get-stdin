@@ -1,6 +1,6 @@
 {
 	"name": "get-stdin",
-	"version": "9.0.0",
+	"version": "10.0.0",
 	"description": "Get stdin as a string or Uint8Array",
 	"license": "MIT",
 	"repository": "sindresorhus/get-stdin",
