@@ -58,13 +58,13 @@ declare const getStdin: {
 	(options?: Options): Promise<string>;
 
 	/**
-	Get [`stdin`](https://nodejs.org/api/process.html#process_process_stdin) as a `Buffer`.
+	Get [`stdin`](https://nodejs.org/api/process.html#process_process_stdin) as a `Uint8Array`.
 
 	@returns A promise that is resolved when the `end` event fires on the `stdin` stream, indicating that there is no more data to be read.
 
-	By default, in a TTY context the promise resolves with an empty buffer. This avoids hanging CLIs that only want piped input and lets them fall back to other input methods. An empty buffer means no input was read. To read from a TTY, set `allowTTY: true` and explicitly close `stdin` (Ctrl+D on Unix, Ctrl+Z on Windows).
+	By default, in a TTY context the promise resolves with an empty `Uint8Array`. This avoids hanging CLIs that only want piped input and lets them fall back to other input methods. An empty `Uint8Array` means no input was read. To read from a TTY, set `allowTTY: true` and explicitly close `stdin` (Ctrl+D on Unix, Ctrl+Z on Windows).
 	*/
-	buffer(options?: Options): Promise<Buffer>;
+	buffer(options?: Options): Promise<Uint8Array>;
 };
 
 export default getStdin;

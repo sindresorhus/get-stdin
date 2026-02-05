@@ -1,6 +1,6 @@
 # get-stdin
 
-> Get [stdin](https://nodejs.org/api/process.html#process_process_stdin) as a string or buffer
+> Get [stdin](https://nodejs.org/api/process.html#process_process_stdin) as a string or `Uint8Array`
 
 ## Install
 
@@ -46,7 +46,7 @@ unicorns
 
 Both methods return a promise that is resolved when the `end` event fires on the `stdin` stream, indicating that there is no more data to be read.
 
-By default, in a TTY context the promise resolves with an empty string or buffer. This avoids hanging CLIs that only want piped input and lets them fall back to other input methods. An empty string or buffer means no input was read. To read from a TTY, set `allowTTY: true` and explicitly close `stdin` (Ctrl+D on Unix, Ctrl+Z on Windows).
+By default, in a TTY context the promise resolves with an empty string or `Uint8Array`. This avoids hanging CLIs that only want piped input and lets them fall back to other input methods. An empty string or `Uint8Array` means no input was read. To read from a TTY, set `allowTTY: true` and explicitly close `stdin` (Ctrl+D on Unix, Ctrl+Z on Windows).
 
 ### getStdin(options?)
 
@@ -76,7 +76,7 @@ Useful for tests or to read from a custom stream.
 
 ### getStdin.buffer(options?)
 
-Get `stdin` as a `Buffer`.
+Get `stdin` as a `Uint8Array`.
 
 #### options
 

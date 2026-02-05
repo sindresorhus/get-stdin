@@ -1,7 +1,7 @@
 {
 	"name": "get-stdin",
 	"version": "9.0.0",
-	"description": "Get stdin as a string or buffer",
+	"description": "Get stdin as a string or Uint8Array",
 	"license": "MIT",
 	"repository": "sindresorhus/get-stdin",
 	"funding": "https://github.com/sponsors/sindresorhus",
@@ -20,7 +20,7 @@
 		"node": ">=20"
 	},
 	"scripts": {
-		"test": "xo && ava test.js test-buffer.js && echo unicorns | node test-real.js && tsd"
+		"test": "xo && node --test"
 	},
 	"files": [
 		"index.js",
@@ -38,9 +38,7 @@
 	],
 	"devDependencies": {
 		"@types/node": "^25.2.0",
-		"ava": "^6.4.1",
 		"delay": "^7.0.0",
-		"tsd": "^0.33.0",
 		"xo": "^1.2.3"
 	}
 }
