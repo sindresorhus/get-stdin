@@ -1,7 +1,11 @@
-const {stdin: processStdin} = process;
+const {stdin: processStdin} = globalThis.process ?? {};
 
 const getStdinBuffer = async (options = {}) => {
-	const {stdin = processStdin, allowTTY = false} = options;
+	const {
+		stdin = processStdin,
+		allowTTY = false,
+	} = options;
+
 	if (stdin.isTTY && !allowTTY) {
 		return Buffer.alloc(0);
 	}
